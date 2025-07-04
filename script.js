@@ -1,7 +1,26 @@
 function abrirEx1() {
-  window.location.href = 'indexex1.html';
+  window.location.href = "indexex1.html";
+}
 
-  document.getElementById("formulario").addEventListener("submit", function (e) {
+function abrirEx2() {
+  window.location.href = "indexex2.html";
+}
+
+function abrirEx3() {
+  window.location.href = "indexex3.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const id = document.body.id;
+
+  if (id === "ex1") logicaEx1();
+  if (id === "ex2") logicaEx2();
+  if (id === "ex3") logicaEx3();
+});
+
+
+function logicaEx1() {
+document.getElementById("formulario").addEventListener("submit", function (e) {
   e.preventDefault();
 
   // Coletar valores
@@ -25,13 +44,11 @@ function abrirEx1() {
   link.download = "valores.txt";
   link.click();
 });
-
 }
 
-function abrirEx2() {
-  window.location.href = 'indexex2.html';
 
-  let listaDeNumerosSorteados = [];
+function logicaEx2() {
+let listaDeNumerosSorteados = [];
 let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
@@ -96,13 +113,11 @@ function reiniciarJogo() {
     tentativas = 1;
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true)
-}
-}
+}}
 
-function abrirEx3() {
-  window.location.href = 'indexex3.html';
 
-  let frutas = [];
+function logicaEx3() {
+let frutas = [];
 
 function atualizarLista() {
   document.getElementById('listaFrutas').textContent = JSON.stringify(frutas);
@@ -174,5 +189,7 @@ function filtrarGrandes() {
   const grandes = frutas.filter(f => f.length > 4);
   document.getElementById('saida').textContent = "filter (length > 4): " + JSON.stringify(grandes);
 }
-
 }
+
+
+
